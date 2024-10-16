@@ -3,6 +3,10 @@
   pointer-events: none;
 }
 
+main {
+  padding: 2rem 10vw;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .app-logo {
     animation: app-logo-spin infinite 20s linear;

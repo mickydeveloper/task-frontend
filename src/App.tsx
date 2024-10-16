@@ -1,22 +1,8 @@
 import "./App.css";
 import Header from "./Components/Header/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-function Main() {
-  return (
-    <div className="main" role="main">
-      Main
-    </div>
-  );
-}
-
-function Info() {
-  return (
-    <div className="main" role="main">
-      Info
-    </div>
-  );
-}
+import Main from "./Main/Main";
+import Info from "./Info/Info";
 
 export default function App() {
   return (
