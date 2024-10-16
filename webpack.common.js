@@ -41,4 +41,7 @@ module.exports = {
     path: path.resolve(__dirname, "build"),
     clean: true,
   },
+  devServer: {
+    historyApiFallback: true,
+  },
 };
