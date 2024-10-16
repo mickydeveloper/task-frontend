@@ -1,0 +1,8 @@
+.app-header {
+  background-color: #1f3869;
+  min-height: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 10vw;
+  color: white;
+}
