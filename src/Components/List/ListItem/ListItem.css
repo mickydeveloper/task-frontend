@@ -66,4 +66,6 @@ h5 {
   font-size: 1.2rem;
   list-style: 1rem;
   font-weight: 300;
+  border: none;
+  background-color: #f5f5f5;
 }

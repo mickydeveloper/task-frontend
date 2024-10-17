@@ -6,16 +6,16 @@ export default function Filter({
   filterTransactions: (searchString: string) => void;
 }) {
   return (
-    <>
+    <div>
       <label className="filter-label" htmlFor="filter">
-        Search by name:
+        Filter by name:
       </label>
       <input
-        className="filter"
+        className="filter-input"
         title="filter beneficiary"
         name="filter"
         onChange={(e) => filterTransactions(e.target.value)}
       />
-    </>
+    </div>
   );
 }

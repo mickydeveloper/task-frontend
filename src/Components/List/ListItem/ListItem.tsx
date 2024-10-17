@@ -38,13 +38,13 @@ export default function ListItem({
       >
         {amount}$
       </div>
-      <div
+      <button
         className="delete"
         title="delete"
         onClick={() => removeTransaction(id)}
       >
         x
-      </div>
+      </button>
     </li>
   );
 }

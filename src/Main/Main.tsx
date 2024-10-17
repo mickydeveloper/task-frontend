@@ -4,6 +4,7 @@ import "./Main.css";
 import List from "../Components/List/List";
 import { Transaction } from "../Components/transaction";
 import BalanceFilterBanner from "../Components/BalanceFilterBanner/BalanceFilterBanner";
+import TransactionForm from "../Components/TransactionForm/TransactionForm";
 
 const client = axios.create({
   baseURL: "http://localhost:3000",
@@ -31,6 +32,19 @@ export default function Main() {
           1
         );
         setTranactions(newArray);
+        setFilteredTranactions(newArray);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const createTransaction = (transaction: Transaction) => {
+    client
+      .post(`/transactions`, transaction)
+      .then(() => {
+        const newArray = [...transactions];
+        newArray.unshift(transaction);
+        setTranactions(newArray);
+        setFilteredTranactions(newArray);
       })
       .catch((err) => console.log(err));
   };
@@ -66,7 +80,7 @@ export default function Main() {
         amount={calculateBalance()}
         filterTransactions={filterTransactions}
       />
-      <section>form</section>
+      <TransactionForm createTransaction={createTransaction} />
       <List
         transactions={filteredTransactions}
         removeTransaction={removeTransaction}
