@@ -4,12 +4,19 @@ import ListItem from "./ListItem/ListItem";
 
 export default function List({
   transactions,
+  removeTransaction,
 }: {
   transactions: Array<Transaction>;
+  removeTransaction: (id: number) => void;
 }) {
   const renderTransactions = () => {
     return transactions.map((transaction) => {
-      return <ListItem transaction={transaction} />;
+      return (
+        <ListItem
+          transaction={transaction}
+          removeTransaction={removeTransaction}
+        />
+      );
     });
   };
 

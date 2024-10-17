@@ -3,15 +3,17 @@ import "./ListItem.css";
 
 export default function ListItem({
   transaction,
+  removeTransaction,
 }: {
   transaction: Transaction;
+  removeTransaction: (id: number) => void;
 }) {
   const { id, amount, beneficiary, account, address, date, description } =
     transaction;
   console.log(id);
 
   return (
-    <li className="item-transaction">
+    <li className="item-transaction" key={id + account}>
       <div className="transaction-information" title="transaction-information">
         <h5 className="beneficiary" title="beneficiary name">
           {beneficiary}
@@ -35,6 +37,13 @@ export default function ListItem({
         style={amount > -1 ? { color: "green" } : { color: "red" }}
       >
         {amount}
+      </div>
+      <div
+        className="delete"
+        title="delete"
+        onClick={() => removeTransaction(id)}
+      >
+        x
       </div>
     </li>
   );

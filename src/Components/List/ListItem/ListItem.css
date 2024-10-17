@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: 1fr 100px;
   position: relative;
+  transition: all 0.4s ease-in-out;
 }
 
 h5 {
@@ -55,4 +56,15 @@ h5 {
   justify-content: right;
   align-items: center;
   display: flex;
+}
+
+.delete {
+  position: absolute;
+  color: red;
+  cursor: pointer;
+  top: 0;
+  right: 0.5rem;
+  font-size: 1.2rem;
+  list-style: 1rem;
+  font-weight: 300;
 }
