@@ -1,0 +1,8 @@
+.balance {
+  font-size: 3.5rem;
+  font-weight: 300;
+  justify-content: left;
+  align-items: center;
+  display: flex;
+  margin: 0 0 1rem;
+}

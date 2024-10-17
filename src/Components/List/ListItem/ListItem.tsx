@@ -36,7 +36,7 @@ export default function ListItem({
         title="amount"
         style={amount > -1 ? { color: "green" } : { color: "red" }}
       >
-        {amount}
+        {amount}$
       </div>
       <div
         className="delete"

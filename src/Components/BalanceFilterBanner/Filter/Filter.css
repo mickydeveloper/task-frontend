@@ -1,0 +1,14 @@
+input.filter {
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  width: 150px;
+  color: #838383;
+}
+
+label.filter-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #1f3869;
+}

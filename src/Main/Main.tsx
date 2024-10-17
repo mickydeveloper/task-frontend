@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Main.css";
 import List from "../Components/List/List";
 import { Transaction } from "../Components/transaction";
+import BalanceFilterBanner from "../Components/BalanceFilterBanner/BalanceFilterBanner";
 
 const client = axios.create({
   baseURL: "http://localhost:3000",
@@ -10,10 +11,14 @@ const client = axios.create({
 
 export default function Main() {
   const [transactions, setTranactions] = useState<Array<Transaction>>([]);
+  const [filteredTransactions, setFilteredTranactions] = useState<
+    Array<Transaction>
+  >([]);
 
   const getTransactions = async () => {
     const response = await client.get("/transactions");
     setTranactions(response.data);
+    setFilteredTranactions(response.data);
   };
 
   const removeTransaction = (id: number) => {
@@ -30,15 +35,42 @@ export default function Main() {
       .catch((err) => console.log(err));
   };
 
+  const filterTransactions = (searchString: string) => {
+    const newArray = [...transactions];
+    setFilteredTranactions(
+      newArray.filter((transaction) =>
+        transaction.beneficiary
+          .toLowerCase()
+          .includes(searchString.toLowerCase())
+      )
+    );
+  };
+
+  const calculateBalance = (): number => {
+    const newArray = [...filteredTransactions];
+    return (
+      newArray.reduce(
+        (accumulator, currentValue) => accumulator + currentValue.amount * 100,
+        0
+      ) / 100
+    );
+  };
+
   useEffect(() => {
     getTransactions();
   }, []);
 
   return (
     <main className="main" role="main">
-      <aside>balance</aside>
+      <BalanceFilterBanner
+        amount={calculateBalance()}
+        filterTransactions={filterTransactions}
+      />
       <section>form</section>
-      <List transactions={transactions} removeTransaction={removeTransaction} />
+      <List
+        transactions={filteredTransactions}
+        removeTransaction={removeTransaction}
+      />
     </main>
   );
 }

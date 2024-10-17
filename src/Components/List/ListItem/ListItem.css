@@ -6,7 +6,6 @@
   display: grid;
   grid-template-columns: 1fr 100px;
   position: relative;
-  transition: all 0.4s ease-in-out;
 }
 
 h5 {
