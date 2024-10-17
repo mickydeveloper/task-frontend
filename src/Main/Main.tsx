@@ -21,8 +21,6 @@ export default function Main() {
   const [creationSuccess, setCreationSuccess] = useState<boolean | null>(null);
   const [isFiltering, setIsFiltering] = useState<boolean>(false);
   const pageSize = 20;
-  const lastId =
-    transactions.length > 0 ? transactions[transactions.length - 1].id : 0;
 
   const tosterSuccess = (value: boolean) => {
     setCreationSuccess(value);
@@ -101,7 +99,7 @@ export default function Main() {
         amount={calculateBalance(filteredTransactions)}
         filterTransactions={filterTransactions}
       />
-      <TransactionForm lastId={lastId} createTransaction={createTransaction} />
+      <TransactionForm createTransaction={createTransaction} />
       <List
         transactions={filteredTransactions}
         removeTransaction={removeTransaction}
