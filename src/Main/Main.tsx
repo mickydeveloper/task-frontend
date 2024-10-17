@@ -9,7 +9,8 @@ import Toaster from "../Components/Toaster/Toaster";
 import Pagination from "../Components/Pagination/Pagination";
 
 const client = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://my-json-server.typicode.com/mickydeveloper/transactions",
+  headers: { "Access-Control-Allow-Origin": "*" },
 });
 
 export default function Main() {
@@ -20,6 +21,8 @@ export default function Main() {
   const [creationSuccess, setCreationSuccess] = useState<boolean | null>(null);
   const [isFiltering, setIsFiltering] = useState<boolean>(false);
   const pageSize = 20;
+  const lastId =
+    transactions.length > 0 ? transactions[transactions.length - 1].id : 0;
 
   const tosterSuccess = (value: boolean) => {
     setCreationSuccess(value);
@@ -78,8 +81,8 @@ export default function Main() {
     );
   };
 
-  const calculateBalance = (): number => {
-    const newArray = [...filteredTransactions];
+  const calculateBalance = (transactions: Array<Transaction>): number => {
+    const newArray = [...transactions];
     return (
       newArray.reduce(
         (accumulator, currentValue) => accumulator + currentValue.amount * 100,
@@ -95,10 +98,10 @@ export default function Main() {
   return (
     <main className="main" role="main">
       <BalanceFilterBanner
-        amount={calculateBalance()}
+        amount={calculateBalance(filteredTransactions)}
         filterTransactions={filterTransactions}
       />
-      <TransactionForm createTransaction={createTransaction} />
+      <TransactionForm lastId={lastId} createTransaction={createTransaction} />
       <List
         transactions={filteredTransactions}
         removeTransaction={removeTransaction}

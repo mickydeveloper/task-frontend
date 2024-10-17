@@ -4,14 +4,16 @@ import "./TransactionForm.css";
 
 export default function TransactionFrom({
   createTransaction,
+  lastId,
 }: {
   createTransaction: (transaction: Transaction) => void;
+  lastId: number;
 }) {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const inputsValuesArray = e.target as unknown as Array<HTMLInputElement>;
     createTransaction({
-      id: Math.random(),
+      id: lastId + 1,
       date: new Date().toISOString(),
       amount: +inputsValuesArray[0].value,
       account: inputsValuesArray[1].value,
