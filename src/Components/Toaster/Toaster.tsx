@@ -9,7 +9,6 @@ export default function Toaster({
   success: boolean;
   display: boolean | null;
 }) {
-  console.log(display);
   return (
     <div
       className="toaster"

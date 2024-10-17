@@ -8,7 +8,7 @@
   position: relative;
 }
 
-h5 {
+.beneficiary {
   margin: 0;
   color: #1f3869;
   line-height: 1rem;
@@ -16,11 +16,7 @@ h5 {
 
 .transaction-information {
   display: grid;
-  grid-template-areas:
-    "min-content 1fr"
-    "addressArea addressArea"
-    "descriptionArea descriptionArea"
-    "dateArea dateArea";
+  grid-template-columns: 1fr;
 }
 
 .account-number {
@@ -29,14 +25,12 @@ h5 {
 }
 
 .address {
-  grid-area: addressArea;
   font-size: 0.8rem;
   color: #1f3869;
   font-weight: 500;
 }
 
 .description {
-  grid-area: descriptionArea;
   font-size: 0.9rem;
   color: #838383;
   line-height: 1rem;
@@ -44,7 +38,6 @@ h5 {
 }
 
 .date {
-  grid-area: dateArea;
   font-size: 0.7rem;
   color: #adadad;
 }

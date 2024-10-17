@@ -13,6 +13,7 @@ export default function List({
     return transactions.map((transaction) => {
       return (
         <ListItem
+          key={transaction.id + transaction.account}
           transaction={transaction}
           removeTransaction={removeTransaction}
         />

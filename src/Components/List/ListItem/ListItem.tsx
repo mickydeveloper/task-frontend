@@ -10,7 +10,6 @@ export default function ListItem({
 }) {
   const { id, amount, beneficiary, account, address, date, description } =
     transaction;
-  console.log(id);
 
   return (
     <li className="item-transaction" key={id + account}>

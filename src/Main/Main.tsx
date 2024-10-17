@@ -6,6 +6,7 @@ import { Transaction } from "../Components/transaction";
 import BalanceFilterBanner from "../Components/BalanceFilterBanner/BalanceFilterBanner";
 import TransactionForm from "../Components/TransactionForm/TransactionForm";
 import Toaster from "../Components/Toaster/Toaster";
+import Pagination from "../Components/Pagination/Pagination";
 
 const client = axios.create({
   baseURL: "http://localhost:3000",
@@ -17,6 +18,8 @@ export default function Main() {
     Array<Transaction>
   >([]);
   const [creationSuccess, setCreationSuccess] = useState<boolean | null>(null);
+  const [isFiltering, setIsFiltering] = useState<boolean>(false);
+  const pageSize = 20;
 
   const tosterSuccess = (value: boolean) => {
     setCreationSuccess(value);
@@ -42,7 +45,7 @@ export default function Main() {
           1
         );
         setTranactions(newArray);
-        setFilteredTranactions(newArray);
+        setFilteredTranactions(newArray.slice(0, pageSize));
       })
       .catch((err) => console.log(err));
   };
@@ -54,7 +57,7 @@ export default function Main() {
         const newArray = [...transactions];
         newArray.unshift(transaction);
         setTranactions(newArray);
-        setFilteredTranactions(newArray);
+        setFilteredTranactions(newArray.slice(0, pageSize));
         tosterSuccess(true);
       })
       .catch((err) => {
@@ -65,6 +68,7 @@ export default function Main() {
 
   const filterTransactions = (searchString: string) => {
     const newArray = [...transactions];
+    setIsFiltering(searchString !== "");
     setFilteredTranactions(
       newArray.filter((transaction) =>
         transaction.beneficiary
@@ -99,6 +103,13 @@ export default function Main() {
         transactions={filteredTransactions}
         removeTransaction={removeTransaction}
       />
+      {!isFiltering && (
+        <Pagination
+          pageSize={pageSize}
+          transactions={transactions}
+          setFilteredTransactions={setFilteredTranactions}
+        />
+      )}
       <Toaster
         message={
           creationSuccess
