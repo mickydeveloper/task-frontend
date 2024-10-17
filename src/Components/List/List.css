@@ -1,3 +1,5 @@
 .list-transactions {
   grid-area: myArea;
+  list-style: none;
+  padding: 0;
 }

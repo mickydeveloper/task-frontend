@@ -7,9 +7,11 @@ export default function List({
 }: {
   transactions: Array<Transaction>;
 }) {
-  return (
-    <ul className="list-transactions">
-      <ListItem transaction={transactions[0]} />
-    </ul>
-  );
+  const renderTransactions = () => {
+    return transactions.map((transaction) => {
+      return <ListItem transaction={transaction} />;
+    });
+  };
+
+  return <ul className="list-transactions">{renderTransactions()}</ul>;
 }

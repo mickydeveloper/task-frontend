@@ -7,4 +7,6 @@
   color: white;
   align-items: center;
   margin-top: 30vh;
+  position: sticky;
+  bottom: 0;
 }

@@ -5,4 +5,7 @@
   grid-template-columns: 1fr 1fr;
   padding: 0 10vw;
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
