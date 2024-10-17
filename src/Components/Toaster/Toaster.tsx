@@ -1,13 +1,25 @@
-import "./Balance.css";
+import "./Toaster.css";
 
-export default function Balance({ amount }: { amount: number }) {
+export default function Toaster({
+  message,
+  success,
+  display,
+}: {
+  message: string;
+  success: boolean;
+  display: boolean | null;
+}) {
+  console.log(display);
   return (
     <div
-      className="balance"
-      title="account balance"
-      style={amount > -1 ? { color: "green" } : { color: "red" }}
+      className="toaster"
+      title="toaster"
+      style={{
+        background: success ? "green" : "red",
+        display: display ? "block" : "none",
+      }}
     >
-      {amount}$
+      {message}
     </div>
   );
 }

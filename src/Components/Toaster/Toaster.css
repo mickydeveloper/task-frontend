@@ -1,9 +1,13 @@
-.balance {
-  font-size: 3.5rem;
+.toaster {
   font-weight: 300;
-  justify-content: left;
-  align-items: center;
-  display: flex;
-  margin: 0 0 1rem;
-  min-height: 70%;
+  position: fixed;
+  min-width: 200px;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  bottom: 4rem;
+  right: 10vw;
+  z-index: 2;
+  transition: all 0.4s;
+  border-radius: 4px;
+  box-shadow: 3px 3px 8px #bbbbbb;
 }

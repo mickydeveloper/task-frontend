@@ -5,6 +5,7 @@ import List from "../Components/List/List";
 import { Transaction } from "../Components/transaction";
 import BalanceFilterBanner from "../Components/BalanceFilterBanner/BalanceFilterBanner";
 import TransactionForm from "../Components/TransactionForm/TransactionForm";
+import Toaster from "../Components/Toaster/Toaster";
 
 const client = axios.create({
   baseURL: "http://localhost:3000",
@@ -15,6 +16,15 @@ export default function Main() {
   const [filteredTransactions, setFilteredTranactions] = useState<
     Array<Transaction>
   >([]);
+  const [creationSuccess, setCreationSuccess] = useState<boolean | null>(null);
+
+  const tosterSuccess = (value: boolean) => {
+    setCreationSuccess(value);
+    const timeoutId = setTimeout(() => {
+      setCreationSuccess(null);
+      clearTimeout(timeoutId);
+    }, 500);
+  };
 
   const getTransactions = async () => {
     const response = await client.get("/transactions");
@@ -45,8 +55,12 @@ export default function Main() {
         newArray.unshift(transaction);
         setTranactions(newArray);
         setFilteredTranactions(newArray);
+        tosterSuccess(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        tosterSuccess(false);
+      });
   };
 
   const filterTransactions = (searchString: string) => {
@@ -84,6 +98,15 @@ export default function Main() {
       <List
         transactions={filteredTransactions}
         removeTransaction={removeTransaction}
+      />
+      <Toaster
+        message={
+          creationSuccess
+            ? "Created succefully"
+            : "Failed to create transaction"
+        }
+        success={creationSuccess !== null && creationSuccess}
+        display={creationSuccess}
       />
     </main>
   );
