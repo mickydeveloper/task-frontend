@@ -16,12 +16,12 @@ export default function Pagination({
 
   const onPageClick = (i: number) => {
     setPage(i + 1);
-    let newArray = [...transactions];
+    const newArray = [...transactions];
     setFilteredTransactions(newArray.splice(i * 20, i * 20 + 20));
   };
 
   const renderPages = () => {
-    let pagesArray = [];
+    const pagesArray = [];
     for (let i = 0; i < numberOfPages; i++) {
       pagesArray.push(
         <li

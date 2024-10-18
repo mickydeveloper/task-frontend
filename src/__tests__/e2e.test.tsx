@@ -1,6 +1,5 @@
 import "expect-puppeteer";
 //to run it make sure the localhost is running
-/* tslint:disable */
 
 describe("Task Frontend", () => {
   beforeAll(async () => {
@@ -48,6 +47,6 @@ describe("Task Frontend", () => {
     await expect(fullTitle).toMatch("Test Person");
 
     //screenshot good for debuging/visiual regression
-    await page.screenshot({ path: "advanced-search-results.png" });
+    await page.screenshot({ path: "filter-results.png" });
   });
 });
