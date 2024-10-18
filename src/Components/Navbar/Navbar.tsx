@@ -4,7 +4,7 @@ import "./Navbar.css";
 export default function Navbar() {
   return (
     <nav className="app-navbar">
-      <ul>
+      <ul role="navigation" aria-label="Main Navigation">
         <li>
           <Link to="/">Main</Link>
         </li>

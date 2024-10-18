@@ -22,6 +22,7 @@ export default function Input({
         name={name}
         type={type && type}
         required
+        aria-required="true"
         min={min}
       />
     </>
