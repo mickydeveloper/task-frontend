@@ -12,6 +12,8 @@ module.exports = merge(common, {
     compress: true,
     open: true,
     static: "./build",
+    host: "0.0.0.0",
+    open: ["http://localhost:8080/task-frontend"],
   },
   stats: {
     errorDetails: true,
