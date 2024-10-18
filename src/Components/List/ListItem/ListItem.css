@@ -22,6 +22,7 @@
 .account-number {
   font-size: 0.85rem;
   color: #1f3869;
+  word-break: break-word;
 }
 
 .address {
