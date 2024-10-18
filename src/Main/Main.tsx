@@ -31,9 +31,12 @@ export default function Main() {
   };
 
   const getTransactions = async () => {
-    const response = await client.get("/transactions");
-    setTranactions(response.data);
-    setFilteredTranactions(response.data);
+    const data = await client
+      .get("/transactions")
+      .then((response) => response.data)
+      .catch((err) => console.log(err));
+    setTranactions(data);
+    setFilteredTranactions(data);
   };
 
   const removeTransaction = (id: number) => {
