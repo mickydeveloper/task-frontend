@@ -101,6 +101,7 @@ export default function Main() {
       />
       <TransactionForm createTransaction={createTransaction} />
       <List
+        isFiltering={isFiltering}
         transactions={filteredTransactions}
         removeTransaction={removeTransaction}
       />

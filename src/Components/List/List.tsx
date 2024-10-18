@@ -5,9 +5,11 @@ import ListItem from "./ListItem/ListItem";
 export default function List({
   transactions,
   removeTransaction,
+  isFiltering,
 }: {
   transactions: Array<Transaction>;
   removeTransaction: (id: number) => void;
+  isFiltering: boolean;
 }) {
   const renderTransactions = () => {
     return transactions.map((transaction) => {
@@ -21,5 +23,9 @@ export default function List({
     });
   };
 
-  return <ul className="list-transactions">{renderTransactions()}</ul>;
+  return (
+    <ul className="list-transactions" id={isFiltering ? "isFiltering" : ""}>
+      {renderTransactions()}
+    </ul>
+  );
 }
