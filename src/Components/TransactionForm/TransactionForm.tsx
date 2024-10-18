@@ -31,7 +31,7 @@ export default function TransactionFrom({
       <Input name="beneficiary" label="Beneficiary" />
       <Input name="address" label="Address" />
       <Input name="description" label="Description" />
-      <input type="submit" value="Create" />
+      <input className="submit" type="submit" value="Create" />
     </form>
   );
 }
