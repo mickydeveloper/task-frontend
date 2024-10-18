@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Transaction } from "../../transaction";
 import "./ListItem.css";
 
@@ -10,9 +11,21 @@ export default function ListItem({
 }) {
   const { id, amount, beneficiary, account, address, date, description } =
     transaction;
+  const [visibility, setVisibility] = useState(true);
+
+  const removeAnimate = (id: number) => {
+    setVisibility(false);
+    const timeoutId = setTimeout(() => {
+      removeTransaction(id);
+      clearTimeout(timeoutId);
+    }, 600);
+  };
 
   return (
-    <li className="item-transaction" key={id + account}>
+    <li
+      className={`item-transaction ${visibility ? "" : "deleted"}`}
+      key={id + account}
+    >
       <div className="transaction-information" title="transaction-information">
         <h5 className="beneficiary" title="beneficiary name">
           {beneficiary}
@@ -40,7 +53,7 @@ export default function ListItem({
       <button
         className="delete"
         title="delete"
-        onClick={() => removeTransaction(id)}
+        onClick={() => removeAnimate(id)}
       >
         x
       </button>
