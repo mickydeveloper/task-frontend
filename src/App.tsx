@@ -7,7 +7,7 @@ import Footer from "./Components/Footer/Footer";
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/task-frontend">
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
