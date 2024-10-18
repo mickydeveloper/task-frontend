@@ -9,7 +9,7 @@ import Toaster from "../Components/Toaster/Toaster";
 import Pagination from "../Components/Pagination/Pagination";
 
 const client = axios.create({
-  baseURL: "https://my-json-server.typicode.com/mickydeveloper/transactions",
+  baseURL: "https://transactions-json-1267ce273b82.herokuapp.com",
   headers: { "Access-Control-Allow-Origin": "*" },
 });
 
