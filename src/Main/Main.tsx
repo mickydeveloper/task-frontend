@@ -30,13 +30,14 @@ export default function Main() {
     }, 500);
   };
 
-  const getTransactions = async () => {
-    const data = await client
+  const getTransactions = () => {
+    client
       .get("/transactions")
-      .then((response) => response.data)
+      .then(({ data }) => {
+        setTranactions(data);
+        setFilteredTranactions(data);
+      })
       .catch((err) => console.log(err));
-    setTranactions(data);
-    setFilteredTranactions(data);
   };
 
   const removeTransaction = (id: number) => {

@@ -12,13 +12,15 @@ import {
   ItemWrapper,
 } from "./ListItemStyles";
 
+interface ListItemProps {
+  transaction: Transaction;
+  removeTransaction: (id: number) => void;
+}
+
 export default function ListItem({
   transaction,
   removeTransaction,
-}: {
-  transaction: Transaction;
-  removeTransaction: (id: number) => void;
-}) {
+}: ListItemProps) {
   const { id, amount, beneficiary, account, address, date, description } =
     transaction;
   const [visibility, setVisibility] = useState(true);

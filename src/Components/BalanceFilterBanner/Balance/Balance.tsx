@@ -1,6 +1,10 @@
 import { BalanceWrapper } from "./BalanceStyles";
 
-export default function Balance({ amount }: { amount: number }) {
+interface BalanceProps {
+  amount: number;
+}
+
+export default function Balance({ amount }: BalanceProps) {
   return (
     <BalanceWrapper title="account balance" $positive={amount > -1}>
       {amount}$

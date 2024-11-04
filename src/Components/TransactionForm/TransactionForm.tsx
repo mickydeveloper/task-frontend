@@ -2,11 +2,13 @@ import { Transaction } from "../transaction";
 import Input from "./Input/Input";
 import { SubmitWrapper, TransactionFormWrapper } from "./TransactionFormStyles";
 
+interface TransactionFormProps {
+  createTransaction: (transaction: Transaction) => void;
+}
+
 export default function TransactionFrom({
   createTransaction,
-}: {
-  createTransaction: (transaction: Transaction) => void;
-}) {
+}: TransactionFormProps) {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const inputsValuesArray = e.target as unknown as Array<HTMLInputElement>;

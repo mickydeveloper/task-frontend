@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import { Transaction } from "../transaction";
 import { PageWrapper, PaginationWrapper } from "./PaginationStyles";
 
+interface PaginationProps {
+  pageSize: number;
+  transactions: Array<Transaction>;
+  setFilteredTransactions: (transactions: Array<Transaction>) => void;
+}
+
 export default function Pagination({
   pageSize,
   transactions,
   setFilteredTransactions,
-}: {
-  pageSize: number;
-  transactions: Array<Transaction>;
-  setFilteredTransactions: (transactions: Array<Transaction>) => void;
-}) {
+}: PaginationProps) {
   const [page, setPage] = useState(1);
   const numberOfPages = Math.ceil(transactions.length / pageSize);
 

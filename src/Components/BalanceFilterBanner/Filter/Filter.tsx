@@ -1,10 +1,10 @@
 import { FilterInput } from "./FilterStyles";
 
-export default function Filter({
-  filterTransactions,
-}: {
+interface FilterProps {
   filterTransactions: (searchString: string) => void;
-}) {
+}
+
+export default function Filter({ filterTransactions }: FilterProps) {
   return (
     <div>
       <label className="filter-label" htmlFor="filter">

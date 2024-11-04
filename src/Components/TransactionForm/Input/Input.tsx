@@ -1,16 +1,13 @@
 import { InputWrapper, LabelWrapper } from "./InputStyles";
 
-export default function Input({
-  name,
-  label,
-  type,
-  min,
-}: {
+interface InputProps {
   type?: string;
   name: string;
   label: string;
   min?: string;
-}) {
+}
+
+export default function Input({ name, label, type, min }: InputProps) {
   return (
     <>
       <LabelWrapper className={`${name}-label`} htmlFor={name}>
