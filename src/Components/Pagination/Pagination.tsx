@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Transaction } from "../transaction";
-import "./Pagination.css";
+import { PageWrapper, PaginationWrapper } from "./PaginationStyles";
 
 export default function Pagination({
   pageSize,
@@ -24,14 +24,14 @@ export default function Pagination({
     const pagesArray = [];
     for (let i = 0; i < numberOfPages; i++) {
       pagesArray.push(
-        <li
-          className={`page ${page === i + 1 && "active"}`}
+        <PageWrapper
+          className={`${page === i + 1 && "active"}`}
           title="page"
           key={i}
           onClick={() => onPageClick(i)}
         >
           {i + 1}
-        </li>
+        </PageWrapper>
       );
     }
     return pagesArray;
@@ -42,8 +42,6 @@ export default function Pagination({
   }, [transactions]);
 
   return (
-    <ul className="pagination" title="pagination">
-      {renderPages()}
-    </ul>
+    <PaginationWrapper title="pagination">{renderPages()}</PaginationWrapper>
   );
 }

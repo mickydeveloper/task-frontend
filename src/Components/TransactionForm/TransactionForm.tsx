@@ -1,6 +1,6 @@
 import { Transaction } from "../transaction";
 import Input from "./Input/Input";
-import "./TransactionForm.css";
+import { SubmitWrapper, TransactionFormWrapper } from "./TransactionFormStyles";
 
 export default function TransactionFrom({
   createTransaction,
@@ -21,17 +21,13 @@ export default function TransactionFrom({
     });
   };
   return (
-    <form
-      className="transactionForm"
-      title="Transaction Form"
-      onSubmit={onSubmit}
-    >
+    <TransactionFormWrapper title="Transaction Form" onSubmit={onSubmit}>
       <Input name="amount" label="Amount" type="number" min="0" />
       <Input name="account" label="Account Number" type="number" min="0" />
       <Input name="beneficiary" label="Beneficiary" />
       <Input name="address" label="Address" />
       <Input name="description" label="Description" />
-      <input className="submit" type="submit" value="Create" role="button" />
-    </form>
+      <SubmitWrapper type="submit" value="Create" role="button" />
+    </TransactionFormWrapper>
   );
 }

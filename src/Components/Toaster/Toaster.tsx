@@ -1,4 +1,4 @@
-import "./Toaster.css";
+import { ToasterWrapper } from "./ToasterStyles";
 
 export default function Toaster({
   message,
@@ -10,15 +10,8 @@ export default function Toaster({
   display: boolean | null;
 }) {
   return (
-    <div
-      className="toaster"
-      title="toaster"
-      style={{
-        background: success ? "green" : "red",
-        display: display ? "block" : "none",
-      }}
-    >
+    <ToasterWrapper title="toaster" $display={display} $success={success}>
       {message}
-    </div>
+    </ToasterWrapper>
   );
 }

@@ -1,11 +1,11 @@
-import "./Footer.css";
 import Navbar from "../Navbar/Navbar";
+import { FooterWrapper } from "./FooterStyles";
 
-export default function Header() {
+export default function Footer() {
   return (
-    <footer className="app-footer">
+    <FooterWrapper>
       <span>© 2024</span>
       <Navbar />
-    </footer>
+    </FooterWrapper>
   );
 }

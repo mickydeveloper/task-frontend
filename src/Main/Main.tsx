@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./Main.css";
 import List from "../Components/List/List";
 import { Transaction } from "../Components/transaction";
 import BalanceFilterBanner from "../Components/BalanceFilterBanner/BalanceFilterBanner";
 import TransactionForm from "../Components/TransactionForm/TransactionForm";
 import Toaster from "../Components/Toaster/Toaster";
 import Pagination from "../Components/Pagination/Pagination";
+import { MainWrapper } from "./MainStyles";
 
 const client = axios.create({
-  baseURL: "https://transactions-json-1267ce273b82.herokuapp.com",
+  baseURL: "https://my-json-server.typicode.com/mickydeveloper/transactions",
   headers: { "Access-Control-Allow-Origin": "*" },
 });
 
@@ -97,7 +97,7 @@ export default function Main() {
   }, []);
 
   return (
-    <main className="main" role="main">
+    <MainWrapper>
       <BalanceFilterBanner
         amount={calculateBalance(filteredTransactions)}
         filterTransactions={filterTransactions}
@@ -124,6 +124,6 @@ export default function Main() {
         success={creationSuccess !== null && creationSuccess}
         display={creationSuccess}
       />
-    </main>
+    </MainWrapper>
   );
 }

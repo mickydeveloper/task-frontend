@@ -1,4 +1,4 @@
-import "./Input.css";
+import { InputWrapper, LabelWrapper } from "./InputStyles";
 
 export default function Input({
   name,
@@ -13,10 +13,10 @@ export default function Input({
 }) {
   return (
     <>
-      <label className={`${name}-label`} htmlFor={name}>
+      <LabelWrapper className={`${name}-label`} htmlFor={name}>
         {label}
-      </label>
-      <input
+      </LabelWrapper>
+      <InputWrapper
         className={`${name}-input`}
         title={name}
         name={name}

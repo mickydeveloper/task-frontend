@@ -1,16 +1,14 @@
-.transactionForm {
+import styled from "styled-components";
+
+export const TransactionFormWrapper = styled.form`
   background-color: #f5f5f5;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   position: relative;
   grid-area: rightArea;
-}
+`;
 
-label {
-  margin-top: 0.3rem;
-}
-
-input[type="submit"] {
+export const SubmitWrapper = styled.input`
   border: none;
   padding: 0.6rem;
   cursor: pointer;
@@ -20,9 +18,9 @@ input[type="submit"] {
   transition: 0.4s all;
   margin-top: 0.4rem;
   display: block;
-}
 
-input[type="submit"]:hover {
-  background: #335aa8;
-  transition: 0.4s all;
-}
+  &:hover {
+    background: #335aa8;
+    transition: 0.4s all;
+  }
+`;

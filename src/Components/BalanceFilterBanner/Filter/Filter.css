@@ -1,9 +1,0 @@
-input.filter-input {
-  width: 150px;
-}
-
-@media screen and (max-width: 480px) {
-  input.filter-input {
-    width: -webkit-fill-available;
-  }
-}

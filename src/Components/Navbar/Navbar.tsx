@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
-import "./Navbar.css";
+import { Navigation, StyledLink } from "./NavabarStyles";
 
 export default function Navbar() {
   return (
     <nav className="app-navbar">
-      <ul role="navigation" aria-label="Main Navigation">
+      <Navigation role="navigation" aria-label="Main Navigation">
         <li>
-          <Link to="/">Main</Link>
+          <StyledLink to="/">Main</StyledLink>
         </li>
         <li>
-          <Link to="info">Info</Link>
+          <StyledLink to="info">Info</StyledLink>
         </li>
-      </ul>
+      </Navigation>
     </nav>
   );
 }

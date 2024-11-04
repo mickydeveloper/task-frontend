@@ -1,6 +1,6 @@
 import { Transaction } from "../transaction";
-import "./List.css";
 import ListItem from "./ListItem/ListItem";
+import { ListWrapper } from "./ListStyles";
 
 export default function List({
   transactions,
@@ -24,8 +24,8 @@ export default function List({
   };
 
   return (
-    <ul className="list-transactions" id={isFiltering ? "isFiltering" : ""}>
+    <ListWrapper id={isFiltering ? "isFiltering" : ""}>
       {renderTransactions()}
-    </ul>
+    </ListWrapper>
   );
 }

@@ -1,12 +1,12 @@
 import Navbar from "../Navbar/Navbar";
-import "./Header.css";
 import logo from "../../icons/logo.svg";
+import { AppHeader, AppLogo } from "./HeaderStyles";
 
 export default function Header() {
   return (
-    <header className="app-header">
-      <img src={logo} className="app-logo" alt="logo" />
+    <AppHeader>
+      <AppLogo src={logo} alt="logo" />
       <Navbar />
-    </header>
+    </AppHeader>
   );
 }

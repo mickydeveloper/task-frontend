@@ -1,5 +1,5 @@
 import Balance from "./Balance/Balance";
-import "./BalanceFilterBanner.css";
+import { BalanceFilterBannerWrapper } from "./BalanceFilterBannerStyles";
 import Filter from "./Filter/Filter";
 
 export default function BalanceFilterBanner({
@@ -10,9 +10,9 @@ export default function BalanceFilterBanner({
   filterTransactions: (searchString: string) => void;
 }) {
   return (
-    <aside className="balance-filter-banner" title="Balance Filter Banner">
+    <BalanceFilterBannerWrapper title="Balance Filter Banner">
       <Balance amount={amount} />
       <Filter filterTransactions={filterTransactions} />
-    </aside>
+    </BalanceFilterBannerWrapper>
   );
 }

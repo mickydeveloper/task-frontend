@@ -1,9 +1,5 @@
-import "./Info.css";
+import { MainWrapper } from "./InfoStyles";
 
 export default function Info() {
-  return (
-    <main className="info" role="main">
-      Info
-    </main>
-  );
+  return <MainWrapper>Info</MainWrapper>;
 }

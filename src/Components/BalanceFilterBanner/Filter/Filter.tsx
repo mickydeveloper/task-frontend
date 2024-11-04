@@ -1,4 +1,4 @@
-import "./Filter.css";
+import { FilterInput } from "./FilterStyles";
 
 export default function Filter({
   filterTransactions,
@@ -10,8 +10,7 @@ export default function Filter({
       <label className="filter-label" htmlFor="filter">
         Filter by name:
       </label>
-      <input
-        className="filter-input"
+      <FilterInput
         title="filter beneficiary"
         name="filter"
         onChange={(e) => filterTransactions(e.target.value)}

@@ -1,13 +1,9 @@
-import "./Balance.css";
+import { BalanceWrapper } from "./BalanceStyles";
 
 export default function Balance({ amount }: { amount: number }) {
   return (
-    <div
-      className="balance"
-      title="account balance"
-      style={amount > -1 ? { color: "green" } : { color: "red" }}
-    >
+    <BalanceWrapper title="account balance" $positive={amount > -1}>
       {amount}$
-    </div>
+    </BalanceWrapper>
   );
 }

@@ -1,6 +1,16 @@
 import { useState } from "react";
 import { Transaction } from "../../transaction";
-import "./ListItem.css";
+import {
+  AccountNumberWrapper,
+  AddressWrapper,
+  AmountWrapper,
+  BeneficiaryWrapper,
+  DateWrapper,
+  DeleteWrapper,
+  DescriptionWrapper,
+  InformationWrapper,
+  ItemWrapper,
+} from "./ListItemStyles";
 
 export default function ListItem({
   transaction,
@@ -22,41 +32,31 @@ export default function ListItem({
   };
 
   return (
-    <li
-      className={`item-transaction ${visibility ? "" : "deleted"}`}
+    <ItemWrapper
+      className={`${visibility ? "" : "deleted"}`}
       key={id + account}
     >
-      <div className="transaction-information" title="transaction-information">
-        <h5 className="beneficiary" title="beneficiary name">
+      <InformationWrapper title="transaction-information">
+        <BeneficiaryWrapper title="beneficiary name">
           {beneficiary}
-        </h5>
-        <span className="account-number" title="account number">
+        </BeneficiaryWrapper>
+        <AccountNumberWrapper title="account number">
           {account}
-        </span>
-        <span className="address" title="beneficiary address">
-          {address}
-        </span>
-        <span className="description" title="transaction description">
+        </AccountNumberWrapper>
+        <AddressWrapper title="beneficiary address">{address}</AddressWrapper>
+        <DescriptionWrapper title="transaction description">
           {description}
-        </span>
-        <span className="date" title="transaction date">
+        </DescriptionWrapper>
+        <DateWrapper title="transaction date">
           {new Date(date).toUTCString()}
-        </span>
-      </div>
-      <div
-        className="amount"
-        title="amount"
-        style={amount > -1 ? { color: "green" } : { color: "red" }}
-      >
+        </DateWrapper>
+      </InformationWrapper>
+      <AmountWrapper title="amount" $positive={amount > -1}>
         {amount}$
-      </div>
-      <button
-        className="delete"
-        title="delete"
-        onClick={() => removeAnimate(id)}
-      >
+      </AmountWrapper>
+      <DeleteWrapper title="delete" onClick={() => removeAnimate(id)}>
         x
-      </button>
-    </li>
+      </DeleteWrapper>
+    </ItemWrapper>
   );
 }

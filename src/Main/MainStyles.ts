@@ -1,4 +1,6 @@
-.main {
+import styled from "styled-components";
+
+export const MainWrapper = styled.main`
   display: grid;
   grid-column-gap: 1rem;
   grid-row-gap: 1rem;
@@ -7,24 +9,8 @@
   grid-template-areas:
     "leftArea rightArea"
     "myArea myArea";
-}
 
-label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #1f3869;
-}
-
-input[class*="-input"] {
-  border: none;
-  border-radius: 4px;
-  padding: 8px;
-  color: #838383;
-}
-
-@media screen and (max-width: 480px) {
-  .main {
+  @media screen and (max-width: 480px) {
     grid-column-gap: 0;
     grid-row-gap: 0.5rem;
     padding: 1rem;
@@ -33,4 +19,4 @@ input[class*="-input"] {
       "leftArea leftArea"
       "myArea myArea";
   }
-}
+`;
